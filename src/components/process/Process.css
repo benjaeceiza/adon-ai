@@ -1,0 +1,84 @@
+/* Process.css */
+.process-section {
+  position: relative;
+  padding: 120px 0;
+  background-color: #0b0614; /* Fondo oscuro base */
+  
+  /* Acá ponés la ruta de la imagen con los monitores de fondo */
+  background-image: url('../../assets/imagenproceso.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.process-bg-overlay {
+  position: absolute;
+  inset: 0;
+  /* Gradiente para oscurecer la imagen y que las cards destaquen a pleno */
+  background: linear-gradient(
+    180deg, 
+    rgba(11, 6, 20, 0.85) 0%, 
+    rgba(11, 6, 20, 0.13) 50%, 
+    rgba(11, 6, 20, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+.process-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.process-heading {
+  margin-bottom: 60px;
+  max-width: 800px;
+}
+
+/* El título principal, grande y con las letras un poquito más juntas */
+.process-heading h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(40px, 4vw, 55px);
+  line-height: 1.05;
+  color: white;
+  letter-spacing: -1.5px;
+  margin-top: 15px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Títulos de las cards bien bonitos y sólidos */
+.card-title-process {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+
+  .process-section {
+    background-image: url('../../assets/fondo-proceso-mob.png');
+  }
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-heading h2 {
+    font-size: 40px;
+  }
+  .process-heading h2 br {
+    /* En celular es mejor sacar el salto de línea forzado para que no quede raro */
+    display: none; 
+  }
+}

@@ -1,0 +1,138 @@
+/* About.css */
+.about-section {
+  position: relative;
+  padding: 120px 0;
+  background-color: #110820; /* Fondo base oscuro */
+  /* Acá iría la imagen tuya que tiene el alien a la derecha */
+  background-image: url('../../assets/imagennos.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.about-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13, 8, 28, 0.425) 0%, rgba(13, 8, 28, 0.6) 50%, rgba(13, 8, 28, 0.95) 100%);
+  pointer-events: none;
+}
+
+.about-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Tira todo el bloque a la izquierda y lo limita para no pisar la imagen */
+.about-top-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 80px;
+}
+
+.about-text-content {
+  max-width: 600px;
+}
+
+/* El eyebrow con el puntito verde como en la foto */
+.eyebrow {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--green);
+}
+
+.about-text-content h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(40px, 4vw, 55px);
+  line-height: 1.05;
+  color: white;
+  margin-bottom: 25px;
+  letter-spacing: -1.5px;
+}
+
+.about-text-content p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 550px;
+}
+
+/* El botón verde con los recortes cruzados */
+.btn-primary-clipped {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--green);
+  color: #05060d;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 16px 32px;
+  text-decoration: none;
+  clip-path: polygon(
+    0 0, 
+    calc(100% - 15px) 0, 
+    100% 15px, 
+    100% 100%, 
+    15px 100%, 
+    0 calc(100% - 15px)
+  );
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary-clipped:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(197, 212, 107, 0.25);
+}
+
+/* Grilla de las 4 cards */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Ajuste específico para que los títulos queden exactamente iguales a tu foto */
+.card-title-fixed {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 24px;
+  line-height: 1.15; /* Interlineado ajustado para que quede compacto */
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+    .about-section{
+    background-image: url('../../assets/fondo-nos-mob.png');
+    }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-text-content h2 {
+    font-size: 40px;
+  }
+  .about-top-wrapper {
+    justify-content: center;
+  }
+}

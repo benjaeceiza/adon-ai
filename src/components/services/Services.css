@@ -1,0 +1,98 @@
+/* Services.css */
+.services-section {
+  position: relative;
+  padding: 120px 0;
+  background-color: #080410; /* Fondo súper oscuro */
+  /* Acá iría tu imagen de fondo estilo "pasillo tecnológico" */
+  background-image: url('../../assets/fondoqhacemos.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.services-bg-overlay {
+  position: absolute;
+  inset: 0;
+  /* Gradiente que oscurece los bordes y deja ver el centro */
+  background: linear-gradient(
+    180deg, 
+    rgba(8, 4, 16, 0.027) 0%, 
+    rgba(8, 4, 16, 0.164) 50%, 
+    rgba(8, 4, 16, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+.services-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Alineación izquierda para el bloque de texto */
+.services-top-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 60px;
+}
+
+.services-text-content {
+  max-width: 800px;
+
+}
+
+.services-text-content h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(40px, 4vw, 55px);
+  line-height: 1.05;
+  color: white;
+  margin-bottom: 25px;
+  letter-spacing: -1.5px;
+  margin-top: 15px;
+}
+
+.services-text-content p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 680px; /* Para que corte exactamente donde debe */
+}
+
+/* Grilla de 4 tarjetas */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Títulos de las cards ajustados en tamaño e interlineado */
+.card-title-services {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 26px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+
+  .services-section {
+    background-image: url('../../assets/fondo-hacemos-mob.png');
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-text-content h2 {
+    font-size: 40px;
+  }
+  .services-text-content h2 br {
+    display: none; /* Quitamos el salto en celular para que no se rompa */
+  }
+}

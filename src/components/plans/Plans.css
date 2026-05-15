@@ -1,0 +1,108 @@
+/* Plans.css */
+.plans-section {
+  position: relative;
+  padding: 120px 0;
+  background-color: #0b0614;
+  /* Acá va la ruta de la imagen con el alien y la Tierra de fondo */
+  background-image: url("../../assets/imagenplanes.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.plans-bg-overlay {
+  position: absolute;
+  inset: 0;
+  /* Gradiente para darle legibilidad al texto */
+  background: linear-gradient(
+    180deg, 
+    rgba(11, 6, 20, 0.9) 0%, 
+    rgba(11, 6, 20, 0.5) 50%, 
+    rgba(11, 6, 20, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+.plans-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Tira el texto para la izquierda */
+.plans-top-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 60px;
+}
+
+.plans-text-content {
+  max-width: 800px;
+}
+
+.plans-text-content h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(40px, 4vw, 55px);
+  line-height: 1.05;
+  color: white;
+  margin-bottom: 25px;
+  letter-spacing: -1.5px;
+  margin-top: 15px;
+}
+
+.plans-text-content p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card-title-plans {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+/* Estilo del link "Consultar" adentro de la card */
+.btn-plan {
+  display: inline-block;
+  margin-top: auto; /* Empuja el enlace bien abajo si sobra espacio */
+  padding-top: 15px;
+  color: var(--green);
+  font-weight: 900;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.adon-card:hover .btn-plan {
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .plans-section {
+    background-image: url('../../assets/fondo-planes-mob.png');
+  }
+  .plans-text-content h2 {
+    font-size: 40px;
+  }
+  .plans-text-content h2 br {
+    /* En celulares apagamos el salto de línea forzado */
+    display: none;
+  }
+}
