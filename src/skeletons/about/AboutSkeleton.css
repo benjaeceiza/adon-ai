@@ -1,0 +1,44 @@
+/* src/skeletons/AboutSkeleton.css */
+.skeleton-section {
+  padding: 120px 0;
+  background-color: #110820; /* Mismo fondo base que About.css */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animación de brillo (shimmer) */
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #1e1235 25%, #2d1c4d 50%, #1e1235 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Tamaños de los bloques en la cabecera */
+.skel-eyebrow { width: 120px; height: 16px; margin-bottom: 20px; }
+.skel-title { width: 80%; height: 45px; margin-bottom: 10px; }
+.skel-title.short { width: 60%; margin-bottom: 25px; }
+.skel-p { width: 90%; height: 16px; margin-bottom: 10px; }
+.skel-p.short { width: 70%; margin-bottom: 40px; }
+.skel-btn { width: 180px; height: 50px; border-radius: 0; clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px)); }
+
+/* Tamaños para las cards (asumiendo que sigues usando .adon-card) */
+.skeleton-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.skel-card-num { width: 30px; height: 20px; }
+.skel-card-title { width: 90%; height: 24px; }
+.skel-card-title.short { width: 60%; }
+.skel-card-desc { width: 100%; height: 14px; }
+.skel-card-desc.short { width: 80%; }

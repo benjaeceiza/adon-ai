@@ -1,11 +1,11 @@
-/* Process.css */
 .process-section {
   position: relative;
-  padding: 120px 0;
-  background-color: #0b0614; /* Fondo oscuro base */
-  
-  /* Acá ponés la ruta de la imagen con los monitores de fondo */
-  background-image: url('../../assets/imagenproceso.jpg');
+  padding: 80px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #0b0614;
+  background-image: var(--bg-desktop);
   background-size: cover;
   background-position: center;
 }
@@ -13,34 +13,52 @@
 .process-bg-overlay {
   position: absolute;
   inset: 0;
-  /* Gradiente para oscurecer la imagen y que las cards destaquen a pleno */
-  background: linear-gradient(
-    180deg, 
-    rgba(11, 6, 20, 0.85) 0%, 
-    rgba(11, 6, 20, 0.13) 50%, 
-    rgba(11, 6, 20, 0.95) 100%
-  );
+  background: linear-gradient(180deg, rgba(11, 6, 20, 0.85) 0%, rgba(11, 6, 20, 0.13) 50%, rgba(11, 6, 20, 0.95) 100%);
   pointer-events: none;
 }
 
-.process-section .container {
+.container {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
 .process-heading {
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   max-width: 800px;
 }
 
-/* El título principal, grande y con las letras un poquito más juntas */
+.eyebrow {
+  color: var(--green);
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--green);
+}
+
 .process-heading h2 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(40px, 4vw, 55px);
+  font-size: clamp(34px, 4vw, 48px);
   line-height: 1.05;
   color: white;
-  letter-spacing: -1.5px;
-  margin-top: 15px;
+  letter-spacing: -1.2px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .process-grid {
@@ -49,36 +67,61 @@
   gap: 20px;
 }
 
-/* Títulos de las cards bien bonitos y sólidos */
+.process-static-card {
+  padding: 35px 25px;
+  min-height: auto;
+}
+
 .card-title-process {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
+  line-height: 1.25;
   color: white;
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
   letter-spacing: -0.5px;
 }
 
-/* Responsive */
+.adon-card.process-static-card p {
+  opacity: 1;
+  transform: none;
+  margin-top: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 @media (max-width: 1080px) {
   .process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 640px) {
-
+@media (max-width: 768px) {
   .process-section {
-    background-image: url('../../assets/fondo-proceso-mob.png');
+    background-image: var(--bg-mobile);
+    padding: 60px 0;
   }
+
+  .process-heading {
+    margin-bottom: 35px;
+  }
+
+  .process-heading h2 {
+    font-size: 32px;
+  }
+
+  .process-heading h2 br {
+    display: none;
+  }
+
   .process-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
-  .process-heading h2 {
-    font-size: 40px;
-  }
-  .process-heading h2 br {
-    /* En celular es mejor sacar el salto de línea forzado para que no quede raro */
-    display: none; 
+
+  .process-static-card {
+    padding: 30px 20px;
   }
 }

@@ -1,10 +1,11 @@
-/* Services.css */
 .services-section {
   position: relative;
-  padding: 120px 0;
-  background-color: #080410; /* Fondo súper oscuro */
-  /* Acá iría tu imagen de fondo estilo "pasillo tecnológico" */
-  background-image: url('../../assets/fondoqhacemos.jpg');
+  padding: 80px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #080410;
+  background-image: var(--bg-desktop);
   background-size: cover;
   background-position: center;
 }
@@ -12,87 +13,190 @@
 .services-bg-overlay {
   position: absolute;
   inset: 0;
-  /* Gradiente que oscurece los bordes y deja ver el centro */
-  background: linear-gradient(
-    180deg, 
-    rgba(8, 4, 16, 0.027) 0%, 
-    rgba(8, 4, 16, 0.164) 50%, 
-    rgba(8, 4, 16, 0.95) 100%
-  );
+  background: linear-gradient(180deg, rgba(8, 4, 16, 0.027) 0%, rgba(8, 4, 16, 0.164) 50%, rgba(8, 4, 16, 0.95) 100%);
   pointer-events: none;
 }
 
-.services-section .container {
+.container {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
-/* Alineación izquierda para el bloque de texto */
 .services-top-wrapper {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .services-text-content {
   max-width: 800px;
+}
 
+.eyebrow {
+  color: var(--green);
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--green);
 }
 
 .services-text-content h2 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(40px, 4vw, 55px);
+  font-size: clamp(34px, 4vw, 48px);
   line-height: 1.05;
   color: white;
-  margin-bottom: 25px;
-  letter-spacing: -1.5px;
-  margin-top: 15px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: -1.2px;
 }
 
 .services-text-content p {
+  font-family: "Inter", sans-serif;
   color: rgba(255, 255, 255, 0.7);
   font-size: 15px;
   line-height: 1.6;
-  max-width: 680px; /* Para que corte exactamente donde debe */
+  max-width: 680px;
+  margin: 0;
 }
 
-/* Grilla de 4 tarjetas */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
-/* Títulos de las cards ajustados en tamaño e interlineado */
+.services-static-card {
+  padding: 35px 25px;
+  min-height: auto;
+}
+
 .card-title-services {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 26px;
-  line-height: 1.15;
+  font-size: 22px;
   font-weight: 700;
+  line-height: 1.25;
   color: white;
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
   letter-spacing: -0.5px;
 }
 
-/* Responsive */
+.adon-card.services-static-card p {
+  opacity: 1;
+  transform: none;
+  margin-top: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.services-mobile-accordion {
+  display: none;
+}
+
 @media (max-width: 1080px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 640px) {
-
+@media (max-width: 768px) {
   .services-section {
-    background-image: url('../../assets/fondo-hacemos-mob.png');
+    background-image: var(--bg-mobile);
+    padding: 60px 0;
   }
-  .services-grid {
-    grid-template-columns: 1fr;
+
+  .services-top-wrapper {
+    margin-bottom: 35px;
   }
+
   .services-text-content h2 {
-    font-size: 40px;
+    font-size: 32px;
   }
+
   .services-text-content h2 br {
-    display: none; /* Quitamos el salto en celular para que no se rompa */
+    display: none;
+  }
+
+  .services-grid {
+    display: none;
+  }
+
+  .services-mobile-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .accordion-card {
+    padding: 25px 20px;
+  }
+
+  .accordion-card.active {
+    background: #2d1a5db7;
+  }
+
+  .card-top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .card-toggle-icon {
+    font-size: 22px;
+    line-height: 1;
+    color: var(--green);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .accordion-card.active .card-toggle-icon {
+    transform: rotate(45deg);
+  }
+
+  .card-expandable-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .accordion-card.active .card-expandable-wrapper {
+    grid-template-rows: 1fr;
+  }
+
+  .card-expandable-content {
+    overflow: hidden;
+  }
+
+  .accordion-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 15px 0 0 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+  }
+
+  .accordion-card.active p {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

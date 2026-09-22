@@ -1,10 +1,11 @@
-/* About.css */
 .about-section {
   position: relative;
-  padding: 120px 0;
-  background-color: #110820; /* Fondo base oscuro */
-  /* Acá iría la imagen tuya que tiene el alien a la derecha */
-  background-image: url('../../assets/imagennos.jpg');
+  padding: 80px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #05060d;
+  background-image: var(--bg-desktop);
   background-size: cover;
   background-position: center;
 }
@@ -12,29 +13,30 @@
 .about-bg-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(13, 8, 28, 0.425) 0%, rgba(13, 8, 28, 0.6) 50%, rgba(13, 8, 28, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(36, 21, 75, 0.4) 0%, rgba(36, 21, 75, 0.7) 50%, rgba(5, 6, 13, 0.95) 100%);
   pointer-events: none;
 }
 
-.about-section .container {
+.container {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
-/* Tira todo el bloque a la izquierda y lo limita para no pisar la imagen */
 .about-top-wrapper {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .about-text-content {
-  max-width: 600px;
+  max-width: 650px;
 }
 
-/* El eyebrow con el puntito verde como en la foto */
 .eyebrow {
   color: var(--green);
+  font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 2px;
@@ -42,7 +44,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .eyebrow::before {
@@ -56,83 +58,214 @@
 
 .about-text-content h2 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(40px, 4vw, 55px);
+  font-size: clamp(34px, 4vw, 48px);
   line-height: 1.05;
   color: white;
-  margin-bottom: 25px;
-  letter-spacing: -1.5px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  letter-spacing: -1.2px;
 }
 
 .about-text-content p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 40px;
+  font-family: "Inter", sans-serif;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 25px;
   max-width: 550px;
 }
 
-/* El botón verde con los recortes cruzados */
 .btn-primary-clipped {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background-color: var(--green);
-  color: #05060d;
+  color: var(--black, #05060d);
+  font-family: "Inter", sans-serif;
   font-weight: 800;
   font-size: 15px;
-  padding: 16px 32px;
+  padding: 14px 28px;
   text-decoration: none;
-  clip-path: polygon(
-    0 0, 
-    calc(100% - 15px) 0, 
-    100% 15px, 
-    100% 100%, 
-    15px 100%, 
-    0 calc(100% - 15px)
-  );
+  -webkit-clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .btn-primary-clipped:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) translateZ(0);
   box-shadow: 0 10px 20px rgba(197, 212, 107, 0.25);
 }
 
-/* Grilla de las 4 cards */
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+.about-horizontal-accordion {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  align-items: stretch;
 }
 
-/* Ajuste específico para que los títulos queden exactamente iguales a tu foto */
-.card-title-fixed {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 24px;
-  line-height: 1.15; /* Interlineado ajustado para que quede compacto */
+.adon-card {
+  position: relative;
+  padding: 30px 20px;
+  background: #291755b7;
+  -webkit-clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 25px 100%, 0 calc(100% - 25px));
+  clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 25px 100%, 0 calc(100% - 25px));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  border-top: 1px solid rgba(255, 255, 255, 0.247);
+  border-left: 1px solid rgba(255, 255, 255, 0.247);
+  flex: 1;
+  min-height: 240px;
+}
+
+.adon-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: calc(100% - 25px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--green, #c5d46b), var(--purple, #7a4bf3));
+  opacity: 0.8;
+  transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+.adon-card:hover {
+  transform: translateY(-6px);
+}
+
+.adon-card:hover::after {
+  height: 3px;
+  opacity: 1;
+}
+
+.adon-card.active {
+  flex: 2.5;
+  background: #2d1a5db7;
+}
+
+.card-top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.adon-card .card-number {
+  color: var(--green);
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  margin-bottom: 0;
+  display: block;
+}
+
+.card-toggle-icon {
+  font-size: 22px;
+  line-height: 1;
+  color: var(--green);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.adon-card.active .card-toggle-icon {
+  transform: rotate(45deg);
+}
+
+.adon-card .card-title-fixed {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
   font-weight: 700;
+  line-height: 1.25;
+  color: white;
+  margin: 0;
   letter-spacing: -0.5px;
+  min-width: 160px;
 }
 
-/* Responsive */
+.card-expandable-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.adon-card.active .card-expandable-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.card-expandable-content {
+  overflow: hidden;
+}
+
+.adon-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 15px 0 0 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+}
+
+.adon-card.active p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 1080px) {
-  .about-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .about-horizontal-accordion {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .adon-card {
+    flex: 1 1 calc(50% - 8px);
+    min-height: 220px;
+  }
+
+  .adon-card.active {
+    flex: 1 1 100%;
   }
 }
 
-@media (max-width: 640px) {
-    .about-section{
-    background-image: url('../../assets/fondo-nos-mob.png');
-    }
+@media (max-width: 768px) {
+  .about-section {
+    background-image: var(--bg-mobile);
+    padding: 60px 0;
+  }
 
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-  .about-text-content h2 {
-    font-size: 40px;
-  }
   .about-top-wrapper {
-    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  .about-text-content h2 br {
+    display: none;
+  }
+
+  .about-horizontal-accordion {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .adon-card {
+    flex: none;
+    width: 100%;
+    min-height: auto;
+    padding: 25px 20px;
+  }
+
+  .adon-card.active {
+    flex: none;
+  }
+  
+  .adon-card:hover {
+    transform: translateY(-2px);
   }
 }

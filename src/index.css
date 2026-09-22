@@ -1,113 +1,226 @@
-/* index.css */
+ /* index.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@400;700&display=swap');
 
+
+
 :root {
+
   --black: #05060d;
+
   --white: #ffffff;
+
   --green: #c5d46b;
+
   --purple: #7a4bf3;
+
   --adon-purple: #24154b;
+
   --adon-purple-card: rgba(36, 21, 75, 0.76);
+
   --line: rgba(255, 255, 255, 0.13);
+
 }
+
+
 
 * {
+
   box-sizing: border-box;
+
   margin: 0;
+
   padding: 0;
+
 }
+
+
 
 html {
+
   scroll-behavior: smooth;
+
 }
+
+
 
 body {
+
   font-family: "Inter", sans-serif;
+
   background: var(--adon-purple);
+
   color: var(--white);
+
   overflow-x: hidden;
+
 }
 
+
+
 .container {
+
   width: min(1180px, calc(100% - 40px));
+
   margin: 0 auto;
+
 }
+
+
 
 /* card */
 
+
+
 /* AGREGA ESTO AL FINAL DE TU index.css */
+
 /* AGREGA ESTO EN TU index.css */
+
 .adon-card {
+
   position: relative;
+
   padding: 40px 30px;
 
+
+
   background: #291755b7; /* Violeta oscuro sólido igual a la imagen */
-  
+
+ 
+
   /* El recorte cruzado exacto de las fotos (Arriba-Der y Abajo-Izq) */
+
   clip-path: polygon(
-    0 0, 
-    calc(100% - 25px) 0, 
-    100% 25px, 
-    100% 100%, 
-    25px 100%, 
+
+    0 0,
+
+    calc(100% - 25px) 0,
+
+    100% 25px,
+
+    100% 100%,
+
+    25px 100%,
+
     0 calc(100% - 25px)
+
   );
-  
+
+ 
+
   display: flex;
+
   flex-direction: column;
+
   transition: transform 0.3s ease;
+
   cursor: pointer;
+
   border-top: 1px solid rgba(255, 255, 255, 0.247);
+
   border-left: 1px solid rgba(255, 255, 255, 0.247);
+
 }
+
+
 
 /* La barrita de gradiente inferior que empieza después del corte */
+
 .adon-card::after {
+
   content: '';
+
   position: absolute;
+
   bottom: 0;
+
   right: 0;
+
   width: calc(100% - 25px); /* Ocupa solo la parte plana de abajo */
+
   height: 2px;
+
   background: linear-gradient(90deg, var(--green), var(--purple));
+
   opacity: 0.8;
+
   transition: opacity 0.3s ease, height 0.3s ease;
+
 }
+
+
 
 .adon-card:hover {
+
   transform: translateY(-8px);
+
 }
+
+
 
 .adon-card:hover::after {
+
   height: 3px;
+
   opacity: 1;
+
 }
+
+
 
 /* El número (01, 02) */
+
 .adon-card .card-number {
+
   color: var(--green);
+
   font-family: 'Inter', sans-serif;
+
   font-weight: 900;
+
   font-size: 14px;
+
   margin-bottom: 20px;
+
   display: block;
+
 }
+
+
 
 /* Título de la card */
+
 .adon-card h3 {
+
   font-family: 'Space Grotesk', sans-serif;
+
   font-size: 24px;
+
   font-weight: 700;
+
   line-height: 1.2;
+
   color: white;
+
   margin-bottom: 15px;
+
 }
 
+
+
 /* Párrafo de la card */
+
 .adon-card p {
+
   font-size: 15px;
+
   line-height: 1.6;
+
   color: rgba(255, 255, 255, 0.7);
+
   margin-bottom: 0;
+
   flex-grow: 1;
-}
+
+} 
+
