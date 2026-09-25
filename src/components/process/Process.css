@@ -112,9 +112,6 @@
     font-size: 32px;
   }
 
-  .process-heading h2 br {
-    display: none;
-  }
 
   .process-grid {
     grid-template-columns: 1fr;

@@ -1,6 +1,7 @@
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 100vh; /* Respaldo para navegadores antiguos */
+  min-height: 100dvh; /* Medida dinámica perfecta para móviles modernos */
   display: flex;
   align-items: center;
   background-color: var(--black, #05060d);
