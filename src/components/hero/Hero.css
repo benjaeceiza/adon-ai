@@ -4,17 +4,26 @@
   display: flex;
   align-items: center;
   background-color: var(--black, #05060d);
-  background-image: var(--bg-desktop);
-  background-size: cover;
-  background-position: center right;
   overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(36, 21, 75, 0.95) 0%, rgba(36, 21, 75, 0.7) 45%, rgba(5, 6, 13, 0.1) 100%);
   z-index: 1;
+  /* Fondo oscuro suave para que el texto resalte sobre el video en desktop */
+  background: linear-gradient(180deg, rgba(5, 6, 13, 0.4) 0%, rgba(5, 6, 13, 0.8) 100%);
 }
 
 .container {
@@ -118,14 +127,6 @@
 .fade-in-delayed { animation: fadeInUp 1s ease 0.4s forwards; opacity: 0; }
 
 @media (max-width: 768px) {
-  .hero-section {
-    background-image: var(--bg-mobile);
-    background-position: 65% center; 
-  }
-
-  .hero-overlay {
-    background: linear-gradient(180deg, rgba(36, 21, 75, 0.85) 0%, rgba(5, 6, 13, 0.9) 100%);
-  }
 
   .hero-content h1 {
     font-size: 42px;
