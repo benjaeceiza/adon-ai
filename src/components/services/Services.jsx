@@ -31,7 +31,7 @@ const Services = () => {
   const [openAccordion, setOpenAccordion] = useState('01');
 
   const fondoDesk = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790044295/fondoqhacemos_11zon_sxw3qh.webp";
-  const fondoMov = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790044417/fondo-hacemos-mob-clean_11zon_wiucmw.webp";
+  const fondoMov = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790798450/fondo_1_czfzky.webp";
 
   useEffect(() => {
     const checkMobile = () => {
@@ -117,6 +117,15 @@ const Services = () => {
             ))}
           </div>
         )}
+
+        {/* Nueva sección Brochure */}
+        <div className="services-brochure-cta">
+          <p>¿Querés ver el detalle técnico y nuestra metodología completa?</p>
+          <a className="btn-outline-green" href="https://res.cloudinary.com/dmnksm3th/image/upload/v1790799352/Adon.AI_r0o7vd.pdf" target="_blank" rel="noopener noreferrer">
+            Descargar Brochure PDF
+          </a>
+        </div>
+
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ const About = () => {
   const [openCard, setOpenCard] = useState('01');
 
   const fondoDesk = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790044303/imagennos_11zon_xjwflf.webp";
-  const fondoMov = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790044419/fondo-nos-mob-clean_11zon_lnhctr.webp";
+  const fondoMov = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790798451/fondo_3_wirh0a.webp";
 
   useEffect(() => {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;

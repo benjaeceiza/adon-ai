@@ -12,7 +12,7 @@ const Plans = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const fondoDesk = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790044308/imagenplanes_11zon_de5ppi.webp";
-  const fondoMov = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790044415/fondo-planes-mob-clean_11zon_ujilqg.webp";
+  const fondoMov = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790798450/fondo_2_uuhog8.webp";
 
   useEffect(() => {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;

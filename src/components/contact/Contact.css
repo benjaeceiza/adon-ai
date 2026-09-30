@@ -10,7 +10,8 @@
 
 .contact-box {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr; /* Columna derecha apenas más ancha */
+  grid-template-columns: 0.9fr 1.1fr;
+  /* Columna derecha apenas más ancha */
   gap: 60px;
   padding: 60px;
   background: rgba(22, 13, 44, 0.6);
@@ -18,14 +19,12 @@
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   /* Recorte cruzado de la caja principal (Arriba-Der y Abajo-Izq) */
-  clip-path: polygon(
-    0 0, 
-    calc(100% - 30px) 0, 
-    100% 30px, 
-    100% 100%, 
-    30px 100%, 
-    0 calc(100% - 30px)
-  );
+  clip-path: polygon(0 0,
+      calc(100% - 30px) 0,
+      100% 30px,
+      100% 100%,
+      30px 100%,
+      0 calc(100% - 30px));
 }
 
 .contact-info h2 {
@@ -108,14 +107,12 @@
   border: none;
   cursor: pointer;
   /* El recorte del botón, igual que la caja pero más chico */
-  clip-path: polygon(
-    0 0, 
-    calc(100% - 20px) 0, 
-    100% 20px, 
-    100% 100%, 
-    20px 100%, 
-    0 calc(100% - 20px)
-  );
+  clip-path: polygon(0 0,
+      calc(100% - 20px) 0,
+      100% 20px,
+      100% 100%,
+      20px 100%,
+      0 calc(100% - 20px));
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin-top: 5px;
 }
@@ -125,21 +122,56 @@
   box-shadow: 0 10px 20px rgba(197, 212, 107, 0.25);
 }
 
+.contact-brochure-box {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-brochure-box span {
+  display: block;
+  font-family: "Inter", sans-serif;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.brochure-link {
+  color: var(--green);
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.brochure-link:hover {
+  opacity: 0.7;
+}
+
+
 /* Ajustes Responsive */
 @media (max-width: 960px) {
-  .contact-box { 
-    grid-template-columns: 1fr; 
-    padding: 40px; 
+  .contact-box {
+    grid-template-columns: 1fr;
+    padding: 40px;
   }
+
   .contact-info p {
     max-width: 100%;
+  }
+
+  .contact-brochure-box {
+    margin-bottom: 30px;
   }
 }
 
 @media (max-width: 640px) {
-  .form-row { 
-    grid-template-columns: 1fr; 
+  .form-row {
+    grid-template-columns: 1fr;
   }
+
   .contact-box {
     padding: 30px 20px;
   }

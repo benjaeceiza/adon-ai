@@ -1,0 +1,71 @@
+.back-to-top {
+  position: fixed;
+  /* Alineado justo arriba del botón de WhatsApp (60px + 30px + 15px de margen) */
+  bottom: 105px;
+  right: 36px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  
+  /* Inversión: fondo violeta con flecha verde */
+  background: rgba(36, 21, 75, 0.92);
+  color: var(--green);
+  border: 1.5px solid rgba(197, 212, 107, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  cursor: pointer;
+  z-index: 890; /* Apenas por debajo del z-index de WhatsApp */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  box-shadow: 0 4px 20px rgba(5, 6, 13, 0.5);
+
+  /* Animación de visibilidad suave */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(15px) scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btt-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.25s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Al pasar el mouse se invierte al estilo del botón de WhatsApp */
+.back-to-top:hover {
+  background: var(--green);
+  color: #05060d;
+  border-color: var(--green);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 25px rgba(197, 212, 107, 0.5);
+}
+
+.back-to-top:hover .btt-icon {
+  transform: translateY(-2px);
+}
+
+/* --- Ajustes Responsive Mobile --- */
+@media (max-width: 768px) {
+  .back-to-top {
+    /* Alineado arriba del botón mobile de WhatsApp (55px + 20px + 12px de margen) */
+    bottom: 87px;
+    right: 26px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .btt-icon {
+    width: 18px;
+    height: 18px;
+  }
+}

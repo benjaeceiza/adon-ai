@@ -1,36 +1,49 @@
+import { useState, useEffect } from 'react';
 import './Hero.css';
 
 const Hero = () => {
-  // Tu imagen actual sirve como pantalla de carga instantánea
-  const posterUrl = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790049591/hero_11zon_ebaaz2.webp";
-  // Reemplazá esto por el link directo de tu video en Cloudinary
-  const videoUrl = "https://res.cloudinary.com/dmnksm3th/video/upload/v1790294479/Videohero_b47dca.mp4"; 
+  const posterDesk = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790049591/hero_11zon_ebaaz2.webp";
+  const videoDesk = "https://res.cloudinary.com/dmnksm3th/video/upload/v1790294479/Videohero_b47dca.mp4"; 
+  
+  const posterMob = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790049592/hero-mob_11zon_rx2hot.webp";
+  const videoMob = "https://res.cloudinary.com/dmnksm3th/video/upload/v1790798699/Video_Adon.Ai_4K_rcc3rj.mp4"; 
+
+  const [videoSrc, setVideoSrc] = useState(videoDesk);
+  const [posterSrc, setPosterSrc] = useState(posterDesk);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setVideoSrc(videoMob);
+        setPosterSrc(posterMob);
+      } else {
+        setVideoSrc(videoDesk);
+        setPosterSrc(posterDesk);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <header className="hero-section" id="inicio">
-      
-      {/* 
-        Las 4 propiedades clave para que un video de fondo funcione:
-        autoPlay: arranca solo
-        loop: se repite infinito
-        muted: OBLIGATORIO para que los navegadores permitan el autoPlay
-        playsInline: OBLIGATORIO para que en iPhone no se abra en pantalla completa
-      */}
       <video 
+        key={videoSrc}
         className="hero-video"
         autoPlay 
         loop 
         muted 
         playsInline
-        poster={posterUrl}
+        poster={posterSrc}
       >
-        <source src={videoUrl} type="video/mp4" />
+        <source src={videoSrc} type="video/mp4" />
       </video>
 
-      {/* Tu overlay para oscurecer el video y que se lea el texto */}
       <div className="hero-overlay"></div>
 
-      {/* Contenido original intacto */}
       <div className="container">
         <div className="hero-content">
           <span className="eyebrow fade-in">Software + Marketing + IA</span>
@@ -41,9 +54,15 @@ const Hero = () => {
             Software, marketing, contenido e inteligencia artificial trabajando
             juntos para ordenar tu marca y hacerla crecer.
           </p>
-          <a className="btn-primary fade-in-delayed" href="#planes">
-            Ver planes
-          </a>
+          
+          <div className="hero-buttons fade-in-delayed">
+            <a className="btn-primary" href="#planes">
+              Ver planes
+            </a>
+            <a className="btn-secondary" href="https://res.cloudinary.com/dmnksm3th/image/upload/v1790799352/Adon.AI_r0o7vd.pdf" target="_blank" rel="noopener noreferrer">
+               Brochure
+            </a>
+          </div>
         </div>
       </div>
       

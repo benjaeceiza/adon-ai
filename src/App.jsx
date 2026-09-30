@@ -3,6 +3,7 @@
 
 import "./App.css";
 import About from "./components/about/About";
+import BackToTop from "./components/back-to-top/BackToTop";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
 import Hero from "./components/hero/Hero";
@@ -37,6 +38,7 @@ function App() {
       <Footer />
 
       <WhatsAppButton />
+      <BackToTop/>
     </>
   );
 }

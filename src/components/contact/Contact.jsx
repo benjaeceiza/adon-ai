@@ -9,15 +9,9 @@ const Contact = () => {
     setStatus("Enviando...");
 
     const formData = new FormData(e.target);
-    // Acá va tu Access Key de Web3Forms
     formData.append("access_key", "df921f61-1aa9-4be7-87bd-0f84341c75c4");
     formData.append("subject", "🔥 Nuevo cliente desde la web");
-
-    // 2. Cambiar el nombre de quién te lo envía
     formData.append("from_name", "Consulta Adon 👽");
-
-
-
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -29,7 +23,7 @@ const Contact = () => {
 
       if (data.success) {
         setStatus("¡Consulta enviada con éxito! Te contactaremos pronto.");
-        e.target.reset(); // Limpia el formulario
+        e.target.reset();
       } else {
         console.log("Error", data);
         setStatus("Hubo un error al enviar. Intentá nuevamente.");
@@ -51,12 +45,19 @@ const Contact = () => {
             Contanos qué necesitás y armamos una propuesta clara
             para tu marca, tu etapa actual y tus objetivos.
           </p>
+          
+          {/* Anexo Brochure */}
+          <div className="contact-brochure-box">
+            <span>¿Aún evaluando opciones?</span>
+            <a href="https://res.cloudinary.com/dmnksm3th/image/upload/v1790799352/Adon.AI_r0o7vd.pdf" target="_blank" rel="noopener noreferrer" className="brochure-link">
+              ↓ Descargar presentación corporativa
+            </a>
+          </div>
         </div>
 
         {/* Columna Derecha: Formulario */}
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-row">
-            {/* Es vital el atributo name="..." para que Web3Forms sepa qué campo es */}
             <input type="text" name="nombre" placeholder="Nombre" required />
             <input type="email" name="email" placeholder="Email" required />
           </div>
@@ -69,6 +70,7 @@ const Contact = () => {
               <option value="marketing">Marketing estratégico</option>
               <option value="redes">Redes y contenido</option>
               <option value="ia">Automatización e IA</option>
+              <option value="servicio-completo">Servicio Completo</option>
             </select>
           </div>
 
@@ -83,7 +85,6 @@ const Contact = () => {
             {status === "Enviando..." ? "Enviando..." : "Enviar consulta"}
           </button>
 
-          {/* Mensaje de feedback para el usuario */}
           {status && status !== "Enviando..." && (
             <p style={{ marginTop: '15px', fontWeight: 'bold', color: status.includes('éxito') ? '#4CAF50' : '#f44336' }}>
               {status}

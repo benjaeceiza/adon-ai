@@ -13,7 +13,7 @@ const Process = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const fondoDesk = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790044295/imagenproceso_11zon_pt93ef.webp";
-  const fondoMov = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790044416/fondo-proceso-mob-clean_11zon_rngpql.webp";
+  const fondoMov = "https://res.cloudinary.com/dmnksm3th/image/upload/v1790798450/fondo_4_mhccke.webp";
 
   useEffect(() => {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;

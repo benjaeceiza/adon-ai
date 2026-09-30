@@ -110,6 +110,45 @@
   display: none;
 }
 
+
+.services-brochure-cta {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.services-brochure-cta p {
+  font-family: "Inter", sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn-outline-green {
+  display: inline-flex;
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.btn-outline-green:hover {
+  background: rgba(197, 212, 107, 0.1);
+  transform: translateY(-3px);
+}
+
 @media (max-width: 1080px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
