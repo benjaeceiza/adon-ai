@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 20px rgba(197, 212, 107, 0.4);
-  z-index: 900; /* Asegura que siempre esté por encima de todo */
+  z-index: 1000; /* Asegura que siempre esté por encima de todo */
   transition: all 0.3s ease;
   animation: pulse-green 2s infinite; /* La magia del pulso */
 }

@@ -46,7 +46,6 @@ const Navbar = () => {
             <a href="#proceso" onClick={() => setIsOpen(false)}>Proceso</a>
             <a href="#nosotros" onClick={() => setIsOpen(false)}>Nosotros</a>
             <a href="#contacto" onClick={() => setIsOpen(false)}>Contacto</a>
-            <a className="nav-button" target='_blank' href="https://wa.me/5492657675655">WhatsApp</a>
           </div>
         </div>
       </nav>
