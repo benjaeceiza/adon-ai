@@ -169,11 +169,17 @@
     color: rgba(255, 255, 255, 0.12);
   }
 
-  .hero-buttons {
+.hero-buttons {
     flex-direction: column;
-    align-items: stretch;
+    align-items: stretch; 
+    gap: 15px;
   }
+
+  .btn-primary, 
   .btn-secondary {
-    justify-content: center;
+    justify-content: center; /* Centra perfectamente el texto adentro del botón */
+    text-align: center;
   }
+  
+
 }
