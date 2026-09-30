@@ -75,7 +75,7 @@ const Footer = () => {
             Hablemos y armemos una propuesta clara para tu marca.
           </p>
           <a 
-            href="https://wa.me/92657675655" 
+            href="https://wa.me/5492657675655" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-footer-wa"
