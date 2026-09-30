@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import FooterSkeleton from '../../skeletons/footer/FooterSkeleton';
 import logo from '../../assets/logo.png';
 import './Footer.css';
@@ -46,7 +46,6 @@ const Footer = () => {
           </p>
           <div className="social-links">
             <a href="#instagram" aria-label="Instagram"><FaInstagram /></a>
-            <a href="#linkedin" aria-label="LinkedIn"><FaLinkedinIn /></a>
             <a href="#whatsapp" aria-label="WhatsApp"><FaWhatsapp /></a>
           </div>
         </div>
@@ -76,7 +75,7 @@ const Footer = () => {
             Hablemos y armemos una propuesta clara para tu marca.
           </p>
           <a 
-            href="https://wa.me/5490000000000" 
+            href="https://wa.me/92657675655" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-footer-wa"
